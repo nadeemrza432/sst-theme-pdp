@@ -1,0 +1,64 @@
+<div>
+  <div class="certification_content_container text-white p-4 rounded-2xl">
+    {% for block in section.blocks %}
+      {%- case block.type -%}
+          <h1 class="mb-3">{{ block.settings.description_text }}</h1>
+          <div class="p3">{{ block.settings.description_text }}</div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% style %}
+  {% for block in section.blocks %}
+      {%- case block.type -%}
+          {%- when 'content' -%}
+              .certification_content_container{
+                  background: {{ block.settings.background_color }};
+              }
+      {% endcase %}
+  {% endfor %}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Certification Training Section",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background",
+          "default": "#B5A787"
+        },
+        {
+          "type": "text",
+          "id": "heading_text",
+          "label": "Heading Text",
+          "default": "Certification"
+        },
+        {
+          "type": "text",
+          "id": "description_text",
+          "label": "Short Description Text",
+          "default": "Detailed certification information"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Certification Training Section"
+    }
+  ]
+}
+{% endschema %}

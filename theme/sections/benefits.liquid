@@ -1,0 +1,45 @@
+<div class="bg-[#EFFFEA] py-6">
+  <div>
+    <h2 class="text-[#2E3646] text-center mb-2">{{ section.settings.heading_text }}</h2>
+    <p class="text-[#5F6D7E] text-center w-[60%] mx-auto">{{ section.settings.top_description }}</p>
+  </div>
+  <div class="flex justify-center flex-wrap mx-auto gap-12 w-[70%] my-10">
+    {% for benefit in product.metafields.custom.benefits.value %}
+      <div class="w-[30%] flex-grow flex flex-col items-center gap-4 max-w-[30%]">
+        <div>{{ benefit.image | image_url: width: 36 | image_tag }}</div>
+        <h5 class="text-[#282D56]">{{ benefit.heading }}</h5>
+        <p class="text-[#858585]">{{ benefit.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Benefits Section",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Benefits"
+    },
+    {
+      "type": "text",
+      "id": "top_description",
+      "label": "Short Description Text",
+      "default": "Sri Sri Tattva Moisturising Cream is made with selected Ayurvedic products making your skin healthy and glowing."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Section"
+    }
+  ]
+}
+{% endschema %}
