@@ -15,6 +15,10 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
@@ -298,7 +302,7 @@
 
     {% if settings.show_breadcrumb or settings.show_language_selector %}
       <div
-    class="account--breadcrumb-container mx-auto py-0 px-[5rem] sm:px-[1.5rem] max-w-[var(--page-width)] flex items-center {% if template.name == 'product' %} justify-between {% else %} justify-start {% endif %} w-full text-xl my-3"
+        class="account--breadcrumb-container mx-auto py-0 px-[5rem] sm:px-[1.5rem] max-w-[var(--page-width)] flex items-center {% if template.name == 'product' %} justify-between {% else %} justify-start {% endif %} w-full text-xl my-3"
         {% if template contains 'page.modular-landing' %}
           style="display:none;"
         {% endif %}

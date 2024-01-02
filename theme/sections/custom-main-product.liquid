@@ -176,7 +176,7 @@
                     {% for discount in product.metafields.custom.discounts.value %}
                       <div class="discount_content flex flex-col gap-2 rounded-sm items-start py-2 px-7 flex-wrap sm:w-full">
                         <div class="p2 font-bold">{{ discount.short_description }}</div>
-                        <div class="flex gap-2">
+                        <div class="flex gap-2 items-center">
                           <div class="p2 code_text">{{ discount.promo_text }}</div>
                           {% if discount.promo_text != 'No Code Required' %}
                             <div class="copy_container text-[0.625rem] bg-[#69AD5E] flex items-center gap-1 px-2 rounded-sm cursor-pointer">

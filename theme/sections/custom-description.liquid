@@ -1,0 +1,34 @@
+<div class="my-5">
+  <div class="page-width">
+    {% for desc in product.metafields.custom.description.value %}
+      <div class="mb-10 w-[90%] mx-auto">
+        <h4 class="mb-6">{{ desc.heading }}</h4>
+        <div class="p2">{{ desc.description | metafield_tag }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{%  style %} 
+    .metafield-rich_text_field p{
+        font-size: 20px;
+    }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Product Desc Section",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Desc Section",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}

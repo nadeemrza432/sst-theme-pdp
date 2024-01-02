@@ -1,0 +1,138 @@
+<div>
+  <div class="page-width get_in_touch_main_container">
+    <div class="get_in_touch_container flex flex-col items-center gap-7 text-center">
+      {% if section.settings.image != blank %}
+        <div>{{ section.settings.image | image_url: width: 120 | image_tag }}</div>
+      {% endif %}
+      <div>
+        {% if section.settings.heading_text != blank %}
+          <h5>{{ section.settings.heading_text }}</h5>
+        {% endif %}
+
+        {% if section.settings.description_text != blank %}
+          <p class="mt-3">{{ section.settings.description_text }}</p>
+        {% endif %}
+      </div>
+      {% if section.settings.button_text != blank %}
+        <a href="{{ button_url }}" class="get_in_touch_button text-base py-3 px-6">{{ section.settings.button_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% style %}
+    .get_in_touch_container{
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+        background: {{ section.settings.background_color }};
+    }
+
+  .get_in_touch_button{
+      background: {{ section.settings.button_background_color }};
+      color: {{ section.settings.button_text_color }};
+      border-radius: {{ section.settings.button_radius }}px;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Get In Touch Section",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#EFFFEA"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 16,
+      "max": 116,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 16,
+      "max": 116,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 28
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Still have questions?"
+    },
+    {
+      "type": "text",
+      "id": "description_text",
+      "label": "Description Text",
+      "default": "Can't find the answer you're looking for? Please let us know"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button Background",
+      "default": "#282D56"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get in touch"
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Button Radius",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Get In Touch Section",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}

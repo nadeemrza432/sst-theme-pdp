@@ -1,11 +1,16 @@
-<div>
-  <div class="certification_content_container text-white p-4 rounded-2xl">
-    {% for block in section.blocks %}
-      {%- case block.type -%}
-          <h1 class="mb-3">{{ block.settings.description_text }}</h1>
-          <div class="p3">{{ block.settings.description_text }}</div>
-      {% endcase %}
-    {% endfor %}
+<div class="my-3">
+  <div class="page-width">
+    <div class="text-white p-4 rounded-2xl flex gap-10 w-full">
+      {% for block in section.blocks %}
+        {%- case block.type -%}
+          {% when 'content' %}
+            <div class="certification_content_container-{{ block.id }} w-1/2 p-10 rounded-2xl">
+              <h1 class="mb-3">{{ block.settings.heading_text }}</h1>
+              <div class="p3">{{ block.settings.description_text }}</div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
   </div>
 </div>
 
@@ -13,8 +18,8 @@
   {% for block in section.blocks %}
       {%- case block.type -%}
           {%- when 'content' -%}
-              .certification_content_container{
-                  background: {{ block.settings.background_color }};
+              .certification_content_container-{{ block.id }}{
+                background: {{ block.settings.background_color }};
               }
       {% endcase %}
   {% endfor %}
@@ -22,7 +27,7 @@
 
 {% schema %}
 {
-  "name": "Certification Training Section",
+  "name": "Certification Section",
   "tag": "section",
   "class": "section",
   "disabled_on": {
@@ -57,7 +62,8 @@
   ],
   "presets": [
     {
-      "name": "Certification Training Section"
+      "name": "Certification Section",
+      "category": "text"
     }
   ]
 }

@@ -1,0 +1,46 @@
+<div class="my-7">
+  <div class="page-width">
+    <div class="flex flex-wrap gap-8 justify-center">
+      {% for step in product.metafields.custom.product_consumption_steps.value %}
+        <div class="steps_container w-[45%] p-6 rounded-2xl">
+          <h2 class="text-black">{{ step.step_heading }}</h2>
+          <div class="p2 mt-6 text-[#858585]">{{ step.step_detail | metafield_tag}}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% style %}
+  .steps_container{
+      background: {{ section.settings.background_color }};
+  }
+
+  .metafield-rich_text_field > p{
+    margin-bottom: 0.75rem;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Consumption Steps Section",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FFFBF2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Consumption Steps Section"
+    }
+  ]
+}
+{% endschema %}

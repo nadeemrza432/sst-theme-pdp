@@ -1,0 +1,115 @@
+<div class="mt-8 accordion_main-container">
+  <div class="page-width">
+    <div class="accordion_container">
+      <div class="text-center">
+        <h2>Frequently asked questions</h2>
+        <div class="p2 mt-1">Everything you need to know about the product and billing.</div>
+      </div>
+      <div class="mt-12">
+        <div class="accordion w-[60%] mx-auto">
+          {% for block in section.blocks %}
+            {% if forloop.first %} {% else %}<hr>{% endif %}
+            <div class="accordion_block border-none">
+              <div class="flex justify-between">
+                <div class="text-[18px] font-medium heading-{{ block.id }}">{{ block.settings.heading_text }}</div>
+                <div class="icon-plus-{{ block.id }} icon-plus">{% render 'icon-round-plus' %}</div>
+              </div>
+              <div class="description-{{ block.id }} hidden description p font-['Inter',sans-serif] mt-2">
+                {{ block.settings.description_text }}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% style %}
+  .accordion_main-container{
+      background: {{ section.settings.background_color }}
+  }
+
+  .accordion_container {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
+
+<script>
+  document.querySelectorAll('.icon-plus').forEach((icon) => {
+    icon.addEventListener('click', (e) => {
+      e.target.closest('.accordion_block').querySelector('.description').classList.toggle('hidden');
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Accordion Section",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FFFBF2"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_block",
+      "name": "Accordion Block",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading_text",
+          "label": "Heading Text",
+          "default": "What is your cancellation policy?"
+        },
+        {
+          "type": "text",
+          "id": "description_text",
+          "label": "Description Text",
+          "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, ipsum.Officiis magni non doloremque nisi."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accordion Section",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}
