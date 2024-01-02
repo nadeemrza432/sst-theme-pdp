@@ -96,6 +96,10 @@
   font-size: 2.5rem;
 }
 
+.gt-current-lang{
+  color: #69AD5E !important;
+}
+
 .price{
   display: flex;
 }

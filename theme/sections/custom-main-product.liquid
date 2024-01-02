@@ -85,9 +85,9 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width custom_product">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-      <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %} flex flex-col items-center justify-center h-[37rem] sm:mt-4">
+      <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %} flex flex-col items-center justify-center h-[37rem] sm:h-fit sm:mt-2 sm:mb-4">
         <div
-          class="carousel carousel-main w-[30rem] h-[32rem] max-w-[95vw]"
+          class="carousel carousel-main w-[30rem] h-[32rem] max-w-[95vw] sm:h-fit"
           data-flickity='{ "pageDots": false, "prevNextButtons": {% if product.images.size <= 1 %} false {% else %} true {% endif %}}'
         >
           {% for image in product.images %}
@@ -97,7 +97,7 @@
           {% endfor %}
         </div>
         <div
-          class="carousel carousel-nav image_list w-[30rem] h-[37rem] {% if product.images.size <= 1 %} hidden {% endif %}"
+          class="carousel carousel-nav image_list w-[30rem] h-[37rem] max-w-[95vw] sm:mt-5 sm:h-fit {% if product.images.size <= 1 %} hidden {% endif %}"
           data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false, "prevNextButtons": false, "freeScroll": true }'
         >
           {% for image in product.images %}
@@ -916,6 +916,30 @@
           }, 2000);
         });
       });
+    </script>
+
+    <script defer>
+      if(document.querySelector(".gt_switcher_wrapper")){
+        let gLangContainer = document.querySelector(".gt_switcher_wrapper");
+        let gLanguage = gLangContainer.querySelector(".glink ");
+        let gLanguages = gLangContainer.querySelectorAll(".glink");
+        let heading_block_html = `<svg width="15" height="13" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 9c-.62 0-1.203-.118-1.75-.355a4.55 4.55 0 0 1-1.43-.965 4.543 4.543 0 0 1-.965-1.43A4.362 4.362 0 0 1 .5 4.5c0-.621.118-1.205.355-1.752A4.565 4.565 0 0 1 1.82 1.32 4.552 4.552 0 0 1 3.25.355 4.356 4.356 0 0 1 5 0a4.36 4.36 0 0 1 1.752.355 4.565 4.565 0 0 1 1.429.965c.405.406.727.882.964 1.428.237.547.355 1.131.355 1.752 0 .62-.118 1.203-.355 1.75a4.55 4.55 0 0 1-.965 1.43 4.567 4.567 0 0 1-1.428.965A4.36 4.36 0 0 1 5 9Zm0-.496a7.55 7.55 0 0 0 .726-1.11c.19-.364.345-.77.465-1.22H3.81c.131.475.29.894.474 1.257.184.364.422.721.716 1.073Zm-.636-.075a4.672 4.672 0 0 1-.64-1.02 5.842 5.842 0 0 1-.43-1.236H1.378a3.967 3.967 0 0 0 1.218 1.53 3.68 3.68 0 0 0 1.768.726Zm1.272 0a3.68 3.68 0 0 0 1.768-.726 3.96 3.96 0 0 0 1.219-1.53H6.706a8.656 8.656 0 0 1-.479 1.246c-.192.405-.39.741-.59 1.01ZM1.173 5.673h2.018a5.78 5.78 0 0 1-.08-.6 7 7 0 0 1-.001-1.147 5.99 5.99 0 0 1 .08-.6H1.174a4.085 4.085 0 0 0 0 2.347Zm2.518 0H6.31c.038-.205.064-.402.08-.59a6.876 6.876 0 0 0-.08-1.756H3.69A6.041 6.041 0 0 0 3.587 4.5a6.047 6.047 0 0 0 .104 1.173Zm3.119 0h2.017a4.033 4.033 0 0 0 .127-1.78 3.746 3.746 0 0 0-.127-.566H6.809c.038.205.065.405.08.6a7 7 0 0 1 .001 1.147 5.99 5.99 0 0 1-.08.6v-.001Zm-.104-2.846h1.917c-.293-.635-.694-1.145-1.204-1.53A3.888 3.888 0 0 0 5.637.562c.233.307.443.658.629 1.053.186.395.333.799.44 1.212Zm-2.897 0H6.19a6.908 6.908 0 0 0-.488-1.273A5.522 5.522 0 0 0 5 .496a5.554 5.554 0 0 0-.702 1.058c-.193.38-.356.804-.489 1.273Zm-2.432 0h1.917c.107-.413.254-.817.44-1.212s.396-.746.63-1.054a3.84 3.84 0 0 0-1.788.74 4.034 4.034 0 0 0-1.2 1.525l.001.001Z" fill="#000"/></svg><p>Translate</p>`;
+        let heading_block = document.createElement("span");
+        gLangContainer.classList.add("flex");
+        heading_block.innerHTML = heading_block_html;
+        gLanguages.forEach((lang)=>{
+          lang.style.fontSize = "18px";
+          lang.style.margin = "0 3px";
+          lang.style.marginLeft = "0";
+        })
+        gLangContainer.insertBefore(heading_block, gLanguage);
+        heading_block.querySelector("p").style.fontSize = "18px";
+        heading_block.classList.add("flex");
+        heading_block.style.gap = "5px";
+        heading_block.style.alignItems = "center";
+        heading_block.style.textAlign = "center";
+        gLangContainer.style.gap = "10px";
+      }
     </script>
   </div>
 </section>

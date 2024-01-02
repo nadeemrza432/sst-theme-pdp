@@ -5,8 +5,12 @@
         {%- case block.type -%}
           {% when 'content' %}
             <div class="certification_content_container-{{ block.id }} w-1/2 p-10 rounded-2xl">
-              <h1 class="mb-3">{{ block.settings.heading_text }}</h1>
-              <div class="p3">{{ block.settings.description_text }}</div>
+              {% if block.settings.heading_text != blank %}
+                <h1 class="mb-3">{{ block.settings.heading_text }}</h1>
+              {% endif %}
+              {% if block.settings.description_text != blank %}
+                <div class="p3">{{ block.settings.description_text }}</div>
+              {% endif %}
             </div>
         {% endcase %}
       {% endfor %}

@@ -958,6 +958,7 @@ class VariantSelects extends HTMLElement {
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
+    this.updateQuantity(this.currentVariant);
 
     if (!this.currentVariant) {
       this.toggleAddButton(true, '', true);
@@ -969,6 +970,23 @@ class VariantSelects extends HTMLElement {
       this.renderProductInfo();
       this.updateShareUrl();
     }
+  }
+
+  updateQuantity(selectedVariant) {
+    setTimeout(() => {
+      fetch(window.location.href)
+        .then(response => response.text())
+        .then(html => {
+          const newDocument = new DOMParser().parseFromString(html, 'text/html');
+          const newContent = newDocument.getElementById('variant-inventory');
+          const currentContent = document.getElementById('variant-inventory');
+  
+          if (currentContent && newContent) {
+            currentContent.innerHTML = newContent.innerHTML;
+          }
+        })
+        .catch(error => console.error('Error fetching and updating content:', error));
+    }, 100);
   }
 
   updateOptions() {

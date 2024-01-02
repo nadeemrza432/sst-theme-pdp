@@ -24,6 +24,26 @@
       endif
     -%}
 
+    <div id="variant-inventory" class="{% unless product.selected_or_first_available_variant.available %} hide {% endunless %}">
+      {% if product.has_only_default_variant %}
+        {% if product.variants[0].inventory_quantity <= 10 %}
+          <span class="flex items-center gap-3">
+            {% render 'icon-timer' -%}
+            <span class="p text-[#B58392]">Only {{ product.variants[0].inventory_quantity }} left in stock</span>
+          </span>
+        {% endif %}
+      {% else %}
+        {% if product.selected_or_first_available_variant.inventory_management == 'shopify'
+          and product.selected_or_first_available_variant.inventory_policy != 'continue' and product.selected_or_first_available_variant.inventory_quantity != 0
+        %}
+          <span class="flex items-center gap-3">
+            {% render 'icon-timer' -%}
+            <span class="p text-[#B58392]">Only <span id="variant-inventory">{{ product.selected_or_first_available_variant.inventory_quantity }}</span> left in stock</span>
+          </span>
+        {% endif %}
+      {% endif %}
+    </div>
+
     <product-form
       class="product-form"
       data-hide-errors="{{ gift_card_recipient_feature_active }}"

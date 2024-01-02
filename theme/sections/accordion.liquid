@@ -2,25 +2,35 @@
   <div class="page-width">
     <div class="accordion_container">
       <div class="text-center">
-        <h2>Frequently asked questions</h2>
-        <div class="p2 mt-1">Everything you need to know about the product and billing.</div>
+        {% if section.settings.heading_text != blank %}
+          <h2>{{ section.settings.heading_text }}</h2>
+        {% endif %}
+        {% if section.settings.description_text != blank %}
+          <div class="p2 mt-1">{{ section.settings.description_text }}</div>
+        {% endif %}
       </div>
-      <div class="mt-12">
-        <div class="accordion w-[60%] mx-auto">
-          {% for block in section.blocks %}
-            {% if forloop.first %} {% else %}<hr>{% endif %}
-            <div class="accordion_block border-none">
-              <div class="flex justify-between">
-                <div class="text-[18px] font-medium heading-{{ block.id }}">{{ block.settings.heading_text }}</div>
-                <div class="icon-plus-{{ block.id }} icon-plus">{% render 'icon-round-plus' %}</div>
+      {% if section.blocks.size > 0 %}
+        <div class="mt-12">
+          <div class="accordion w-[60%] mx-auto">
+            {% for block in section.blocks %}
+              {% if forloop.first %} {% else %}<hr>{% endif %}
+              <div class="accordion_block border-none">
+                {% if block.settings.heading_text != blank %}
+                  <div class="flex justify-between">
+                    <div class="text-[18px] font-medium heading-{{ block.id }}">{{ block.settings.heading_text }}</div>
+                    <div class="icon-plus-{{ block.id }} icon-plus">{% render 'icon-round-plus' %}</div>
+                  </div>
+                {% endif %}
+                {% if block.settings.description_text != blank %}
+                  <div class="description-{{ block.id }} hidden description p font-['Inter',sans-serif] mt-2">
+                    {{ block.settings.description_text }}
+                  </div>
+                {% endif %}
               </div>
-              <div class="description-{{ block.id }} hidden description p font-['Inter',sans-serif] mt-2">
-                {{ block.settings.description_text }}
-              </div>
-            </div>
-          {% endfor %}
+            {% endfor %}
+          </div>
         </div>
-      </div>
+      {% endif %}
     </div>
   </div>
 </div>
@@ -82,6 +92,22 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 64
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "text",
+      "id": "description_text",
+      "label": "Description Text",
+      "default": "Everything you need to know about the product and billing."
     }
   ],
   "blocks": [
