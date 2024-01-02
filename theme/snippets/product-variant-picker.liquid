@@ -22,9 +22,9 @@
       {{ block.shopify_attributes }}
     >
       {%- for option in product.options_with_values -%}
-        <fieldset class="js product-form__input flex gap-3 items-center text-center sm:block sm:text-start mt-1">
+        <fieldset class="js product-form__input flex gap-3 items-center text-center sm:text-start mt-1 md:flex-col sm:flex-row">
           <div class="h-full">
-            <legend class="form__label">{{ option.name }}</legend>
+            <legend class="form__label p">{{ option.name }}</legend>
           </div>
           <div class="">
             {% render 'product-variant-options', product: product, option: option, block: block %}

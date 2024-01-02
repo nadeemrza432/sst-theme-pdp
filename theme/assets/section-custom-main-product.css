@@ -1,85 +1,85 @@
 .product {
   margin: 0;
-};
+}
 
-.restock-alerts-branding-text{
+.restock-alerts-branding-text {
   display: none;
 }
 
-.discount_icon svg{
+.discount_icon svg {
   width: 1.5rem;
   height: 1.5rem;
   color: cyan;
 }
 
-.discount_content{
+.discount_content {
   border: 1px dashed #007185;
 }
 
-.icon_check path{
+.icon_check path {
   fill: #fff;
 }
 
-.feature_image{
+.feature_image {
   min-height: 1.5rem;
 }
 
-.feature_image img{
+.feature_image img {
   height: 100%;
   object-fit: cover;
 }
 
-.features_block::after{
-  content: '';
+.features_block::after {
+  content: "";
   width: 1.5px;
-  height: 5rem;
+  height: 5.25rem;
   display: inline-block;
-  background-color: #B5A787;
+  background-color: #b5a787;
   position: absolute;
-  top: 0.5rem;
+  top: 0.65rem;
   left: -2rem;
 }
 
-@media screen and (max-width: 750px){
-  .consultation_block{
+@media screen and (max-width: 750px) {
+  .consultation_block {
     margin-top: 0.75rem;
   }
 }
 
-.consultation_block ::after{
-  content: '';
+.consultation_block ::after {
+  content: "";
   width: 3px;
   height: 100%;
   display: inline-block;
-  background-color: #FFA8A1;
+  background-color: #ffa8a1;
   position: absolute;
   top: 0rem;
   left: -0.75rem;
 }
 
-.consultation_list{
+.consultation_list {
   list-style-type: disc;
   list-style-position: inside;
 }
 
-.consultation_list li{
+.consultation_list li {
   color: #464646;
 }
 
-.consultation_button_container{
+.consultation_button_container {
   padding-top: 0.75rem;
 }
 
-.consultation_button{
+.consultation_button {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
 
-.consultation_button svg{
+.consultation_button svg {
   display: inline-block;
 }
 
-.sharethis-inline-share-buttons{
+.sharethis-inline-share-buttons {
   display: flex !important;
 }
 
@@ -88,19 +88,28 @@
   width: 2rem;
 }
 
-.product-form__buttons{
-  height: 7rem !important;
+@media screen and (min-width: 990px) {
+  .product-form__buttons {
+    height: 7rem !important;
+  }
 }
 
-.related-products__heading{
+.related-products__heading {
   font-size: 2.5rem;
 }
 
-.gt-current-lang{
-  color: #69AD5E !important;
+.gt-current-lang {
+  color: #69ad5e !important;
 }
 
-.price{
+@media screen and (max-width: 750px) {
+  .gt_switcher_wrapper{
+    position: relative;
+    top: 0.01rem;
+  }
+}
+
+.price {
   display: flex;
 }
 
@@ -299,7 +308,7 @@ fieldset.product-form__input .form__label {
 .product-form__input input[type="radio"] + label {
   border: var(--variant-pills-border-width) solid
     rgba(var(--color-foreground), var(--variant-pills-border-opacity));
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   color: rgba(var(--color-foreground));
   color: rgb(var(--color-foreground));
   display: inline-block;
@@ -332,7 +341,7 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__input input[type="radio"]:checked + label {
-  background-color: #C3DDBB;
+  background-color: #c3ddbb;
   color: rgb(var(--color-foreground));
 }
 
@@ -423,8 +432,47 @@ fieldset.product-form__input .form__label {
 
 /* Product info */
 
-.product__info-container > * :not(.features_block) + *  {
-  margin: 0.5rem 0;
+.product__info-container
+  > *
+  :not(
+    .features_block,
+    .certified_heading,
+    .price-item,
+    .tax_block,
+    .shipping_block svg,
+    .shipping_block div,
+    .promo_desc,
+    .code_text,
+    .copy_text,
+    .icon-clip,
+    .icon-clip svg,
+    .promo_content,
+    .copy_container,
+    #variant-inventory span,
+    #variant-inventory svg,
+    .buy_now_button,
+    .consultation_text,
+    .consultation_list li,
+    .consultation_button svg,
+    .share_text,
+    .st-btn,
+    .st-inline-share-buttons,
+    .features_box
+  ) {
+  margin: 0 0 0.5rem 0;
+}
+
+.consultation_text {
+  margin-bottom: 1.5rem;
+}
+
+.consultation_list li {
+  margin-bottom: 1rem;
+}
+
+.price--on-sale,
+.price__container {
+  margin-bottom: 0 !important;
 }
 
 .product__info-container > .features_block {
@@ -437,7 +485,7 @@ fieldset.product-form__input .form__label {
 
 .product__info-container .product-form,
 .product__info-container .product__description,
-.product__info-con  iner .icon-with-text {
+.product__info-con iner .icon-with-text {
   line-height: 2rem;
 }
 
@@ -455,8 +503,7 @@ a.product__text {
   word-break: break-word;
 }
 
-.product__title 
-.product__title + .product__text.caption-with-letter-spacing {
+.product__title .product__title + .product__text.caption-with-letter-spacing {
   margin-top: -1.5rem;
 }
 

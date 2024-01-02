@@ -84,7 +84,7 @@
     </div>
     <div class="price__sale">
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-      <h4 class="price-item price-item--sale price-item--last">
+      <h4 class="price-item price-item--sale price-item--last font-medium">
         {{ money_price }}
       </h4>
       {%- unless product.price_varies == false and product.compare_at_price_varies %}
@@ -116,7 +116,7 @@
     </small>
   </div>
   {%- if show_badges -%}
-    <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+    <span class="hidden badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
       {{ 'products.product.on_sale' | t }}
     </span>
 

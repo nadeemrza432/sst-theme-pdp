@@ -24,21 +24,29 @@
       endif
     -%}
 
-    <div id="variant-inventory" class="{% unless product.selected_or_first_available_variant.available %} hide {% endunless %}">
+    <div
+      id="variant-inventory"
+      class="{% unless product.selected_or_first_available_variant.available %} hide {% endunless %}"
+    >
       {% if product.has_only_default_variant %}
         {% if product.variants[0].inventory_quantity <= 10 %}
           <span class="flex items-center gap-3">
             {% render 'icon-timer' -%}
-            <span class="p text-[#B58392]">Only {{ product.variants[0].inventory_quantity }} left in stock</span>
+            <span class="p1 text-[#B58392]">Only {{ product.variants[0].inventory_quantity }} left in stock</span>
           </span>
         {% endif %}
       {% else %}
         {% if product.selected_or_first_available_variant.inventory_management == 'shopify'
-          and product.selected_or_first_available_variant.inventory_policy != 'continue' and product.selected_or_first_available_variant.inventory_quantity != 0
+          and product.selected_or_first_available_variant.inventory_policy != 'continue'
+          and product.selected_or_first_available_variant.inventory_quantity != 0
         %}
           <span class="flex items-center gap-3">
             {% render 'icon-timer' -%}
-            <span class="p text-[#B58392]">Only <span id="variant-inventory">{{ product.selected_or_first_available_variant.inventory_quantity }}</span> left in stock</span>
+            <span class="p1 text-[#B58392]"
+              >Only
+              <span id="variant-inventory">{{ product.selected_or_first_available_variant.inventory_quantity }}</span>
+              left in stock</span
+            >
           </span>
         {% endif %}
       {% endif %}
@@ -85,7 +93,7 @@
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
 
-        <div class="product-form__buttons flex items-center gap-3 w-full sm:block">
+        <div class="product-form__buttons flex items-center gap-3 w-full sm:flex md:block md:justify-center h-fit">
           {%- liquid
             assign check_against_inventory = true
             if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
@@ -99,7 +107,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %} w-[50%] sm:w-full"
+            class="product-form__submit button {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %} w-[50%] sm:w-[50%] order-2 relative top-[0.85rem] md:w-auto"
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
@@ -113,8 +121,11 @@
             </span>
             {%- render 'loading-spinner' -%}
           </button>
-          <div class="w-[50%] sm:w-full">
+          <div class="w-[50%] sm:w-[50%] buy_now_button md:w-auto">
             {%- if show_dynamic_checkout -%}
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.719 10.938a1.31 1.31 0 0 0-1.306 1.312 1.31 1.31 0 0 0 1.306 1.313c.722 0 1.312-.591 1.312-1.313s-.59-1.313-1.312-1.313Zm6.562 0a1.31 1.31 0 0 0-1.306 1.312 1.31 1.31 0 0 0 1.306 1.313c.722 0 1.313-.591 1.313-1.313s-.59-1.313-1.313-1.313Zm1.313-1.313a.658.658 0 0 0-.656-.656h-7.22l.723-1.313h4.889c.492 0 .925-.269 1.148-.676l2.126-4.03a.655.655 0 0 0-.765-.931.654.654 0 0 0-.39.322l-2.12 4.003H5.724L3.104.812a.652.652 0 0 0-.59-.374H1.438a.658.658 0 0 0-.657.656c0 .36.296.656.656.656h.657l2.362 4.98-.886 1.602c-.479.88.151 1.95 1.149 1.95h7.218a.66.66 0 0 0 .657-.657ZM7.534.903a.654.654 0 0 1 .925 0l1.7 1.7a.654.654 0 0 1 0 .925l-1.7 1.7a.654.654 0 0 1-.925-.925l.578-.584h-2.08a.658.658 0 0 1-.657-.656c0-.361.295-.657.656-.657h2.08l-.577-.577a.654.654 0 0 1 0-.926Z" fill="#fff"/>
+              </svg>
               {{ form | payment_button }}
             {%- endif -%}
           </div>

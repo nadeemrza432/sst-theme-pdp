@@ -3,26 +3,26 @@
     <div class="accordion_container">
       <div class="text-center">
         {% if section.settings.heading_text != blank %}
-          <h2>{{ section.settings.heading_text }}</h2>
+          <h2 class="text-black mb-5 sm:text-[24px] sm:w-[50%] sm:mx-auto">{{ section.settings.heading_text }}</h2>
         {% endif %}
         {% if section.settings.description_text != blank %}
-          <div class="p2 mt-1">{{ section.settings.description_text }}</div>
+          <div class="p2 mt-1 text-[#858585] mb-16 sm:text[10px]">{{ section.settings.description_text }}</div>
         {% endif %}
       </div>
       {% if section.blocks.size > 0 %}
         <div class="mt-12">
-          <div class="accordion w-[60%] mx-auto">
+          <div class="accordion w-[60%] mx-auto sm:w-full">
             {% for block in section.blocks %}
               {% if forloop.first %} {% else %}<hr>{% endif %}
               <div class="accordion_block border-none">
                 {% if block.settings.heading_text != blank %}
                   <div class="flex justify-between">
-                    <div class="text-[18px] font-medium heading-{{ block.id }}">{{ block.settings.heading_text }}</div>
+                    <div class="text-[18px] font-medium heading-{{ block.id }} text-black">{{ block.settings.heading_text }}</div>
                     <div class="icon-plus-{{ block.id }} icon-plus">{% render 'icon-round-plus' %}</div>
                   </div>
                 {% endif %}
                 {% if block.settings.description_text != blank %}
-                  <div class="description-{{ block.id }} hidden description p font-['Inter',sans-serif] mt-2">
+                  <div class="description-{{ block.id }} text-[1.13rem] text-[#858585] hidden description font-['Inter',sans-serif] mt-2">
                     {{ block.settings.description_text }}
                   </div>
                 {% endif %}

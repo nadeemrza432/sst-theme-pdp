@@ -1,12 +1,12 @@
 <div class="my-3">
   <div class="page-width">
-    <div class="text-white p-4 rounded-2xl flex gap-10 w-full">
+    <div class="text-white p-4 rounded-2xl flex gap-10 w-full sm:flex-col sm:gap-5">
       {% for block in section.blocks %}
         {%- case block.type -%}
           {% when 'content' %}
-            <div class="certification_content_container-{{ block.id }} w-1/2 p-10 rounded-2xl">
+            <div class="certification_content_container-{{ block.id }} w-1/2 p-10 rounded-2xl sm:w-full">
               {% if block.settings.heading_text != blank %}
-                <h1 class="mb-3">{{ block.settings.heading_text }}</h1>
+                <h1 class="mb-6">{{ block.settings.heading_text }}</h1>
               {% endif %}
               {% if block.settings.description_text != blank %}
                 <div class="p3">{{ block.settings.description_text }}</div>

@@ -47,6 +47,15 @@
       {% endcase %}
 
     {% endfor %}
+
+    .carousel-main .flickity-prev-next-button{
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    .carousel-main .flickity-viewport{
+        height: 30rem;
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -85,14 +94,14 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width custom_product">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-      <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %} flex flex-col items-center justify-center h-[37rem] sm:h-fit sm:mt-2 sm:mb-4">
+      <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %} flex flex-col items-center justify-center w-fit h-[37rem] sm:h-fit sm:mt-4 sm:mb-4">
         <div
           class="carousel carousel-main w-[30rem] h-[32rem] max-w-[95vw] sm:h-fit"
           data-flickity='{ "pageDots": false, "prevNextButtons": {% if product.images.size <= 1 %} false {% else %} true {% endif %}}'
         >
           {% for image in product.images %}
-          <div class="carousel-cell w-full flex items-center justify-center">
-              <img class="h-full w-[80%] object-cover" src="{{ image.src |  image_url }}">
+          <div class="carousel-cell w-full h-full flex items-center justify-center">
+              <img class="h-full w-[90%] object-cover rounded-3xl" src="{{ image.src |  image_url }}">
             </div>
           {% endfor %}
         </div>
@@ -101,8 +110,8 @@
           data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false, "prevNextButtons": false, "freeScroll": true }'
         >
           {% for image in product.images %}
-            <div class="carousel-cell w-1/6 h-[8rem] mx-[13.8px] ml-0">
-              <img class="h-full w-full object-cover rounded-xl" src="{{ image.src |  image_url }}">
+            <div class="carousel-cell w-[14.5%] h-[4.3rem] mx-[13.8px] ml-0">
+              <img class="object-cover rounded-xl" src="{{ image.src |  image_url }}">
             </div>
           {% endfor %}
         </div>
@@ -129,7 +138,7 @@
                 </p>
               {%- when 'title' -%}
                 <div class="product__title flex justify-between items-center mb-2" {{ block.shopify_attributes }}>
-                  <h4>{{ product.title | escape }}</h4>
+                  <h4 class="font-medium">{{ product.title | escape }}</h4>
                   <a href="{{ product.url }}" class="product__title hidden">
                     <h2 class="h1">
                       {{ product.title | escape }}
@@ -137,62 +146,64 @@
                   </a>
                 </div>
               {%- when 'short_desc' -%}
-                <p
-                  class="short_desc font-medium text-[#282D56] mb-2"
+                <div
+                  class="short_desc p1 font-medium text-[#282D56] mb-2"
                   {{ block.shopify_attributes }}
                 >
                   {{- block.settings.short_desc -}}
-                </p>
+                </div>
               {% when 'certified_block' %}
-                <div class="flex items-center gap-2 certified_text text-[#000] p1">
-                  <div>{% render 'icon-check' %}</div>
-                  <div>{{ block.settings.certified_text }}</div>
+                <div class="flex items-center gap-2 certified_text text-[#000] p1 mb-2">
+                  {% render 'icon-check' %}
+                  <div class="certified_heading">{{ block.settings.certified_text }}</div>
                 </div>
               {%- when 'payment_block' -%}
                 <div
                   class="payment_block flex gap-2 items-center"
                   {{ block.shopify_attributes }}
                 >
-                  <span>{% render 'icon-mastercard' %}</span>
+                  {% render 'icon-mastercard' %}
                   <span class="p1">{{ block.settings.payment_text }}</span>
                   <a class="p4 text-[1rem] font-medium text-[#007185]" href="#">
                     {{- block.settings.payment_anchor_text -}}
                   </a>
                 </div>
               {%- when 'shipping_block' -%}
-                <div class="flex items-center gap-2 shipping_block justify-center w-fit px-2 rounded-[2.25rem]">
-                  <div>{% render 'icon-truck' %}</div>
+                <div class="flex items-center gap-[0.63rem] shipping_block justify-center w-fit px-2 py-2 rounded-[2.25rem] mt-4 mb-6 text-center">
+                  {% render 'icon-truck' %}
                   <div class="p1 font-bold text-[#21391D]">{{ block.settings.shipping_text }}</div>
                 </div>
               {%- when 'dicount_block' -%}
-                <div>
-                  <div class="flex items-center gap-2 mb-2">
-                    <div class="discount_icon">
-                      {% render 'icon-discount' %}
-                    </div>
-                    <h5>{{ block.settings.discount_text }}</h5>
-                  </div>
-                  <div class="flex items-center justify-start gap-3 flex-wrap sm:justify-start">
-                    {% for discount in product.metafields.custom.discounts.value %}
-                      <div class="discount_content flex flex-col gap-2 rounded-sm items-start py-2 px-7 flex-wrap sm:w-full">
-                        <div class="p2 font-bold">{{ discount.short_description }}</div>
-                        <div class="flex gap-2 items-center">
-                          <div class="p2 code_text">{{ discount.promo_text }}</div>
-                          {% if discount.promo_text != 'No Code Required' %}
-                            <div class="copy_container text-[0.625rem] bg-[#69AD5E] flex items-center gap-1 px-2 rounded-sm cursor-pointer">
-                              <div class="text-white icon-clip">{% render 'icon-clipboard' %}</div>
-                              <div class="text-white icon_check hidden">{% render 'icon-check' %}</div>
-                              <div class="text-white copy_text">Copy</div>
-                            </div>
-                          {% endif %}
-                        </div>
+                {% if product.metafields.custom.discounts.value != blank %}
+                  <div>
+                    <div class="flex items-center gap-2 mb-2">
+                      <div class="discount_icon">
+                        <img class="h-min" src="{{ 'icon-offer.png' | asset_img_url }}" />
                       </div>
-                    {% endfor %}
+                      <div class="p2 font-medium">{{ block.settings.discount_text }}</div>
+                    </div>
+                    <div class="flex items-center justify-start gap-3 flex-wrap sm:justify-start">
+                      {% for discount in product.metafields.custom.discounts.value %}
+                        <div class="discount_content flex flex-col gap-2 rounded-sm items-start py-2 px-7 flex-wrap sm:w-full">
+                          <div class="p font-bold promo_desc">{{ discount.short_description }}</div>
+                          <div class="flex gap-3 items-center promo_content">
+                            <div class="p1 code_text">{{ discount.promo_text }}</div>
+                            {% if discount.promo_text != 'No Code Required' %}
+                              <div class="copy_container p1 bg-[#69AD5E] flex items-center gap-1 p-[0.5rem] rounded-sm cursor-pointer">
+                                <div class="text-white icon-clip">{% render 'icon-clipboard' %}</div>
+                                <div class="text-white icon_check hidden">{% render 'icon-check' %}</div>
+                                <div class="text-white copy_text">Copy</div>
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      {% endfor %}
+                    </div>
                   </div>
-                </div>
+                {% endif %}
 
               {% when 'features' %}
-                <div class="flex items-center gap-7 bg-[#FFFBF2] rounded-xl sm:justify-center">
+                <div class="flex items-center gap-[3.25rem] bg-[#FFFBF2] rounded-xl sm:justify-center features_box">
                   {% for feature in product.metafields.custom.features.value %}
                     <div class="flex flex-col items-center gap-3 relative justify-center text-center py-2">
                       <div class="flex-1 feature_image {% if forloop.first %} {% else %} features_block {% endif %}">
@@ -205,14 +216,14 @@
 
               {% when 'consultation_block' %}
                 <div class="bg-[#FCEFEE] consultation_block relative px-2 py-3">
-                  <div class="h0 font-bold">{{ block.settings.consultation_heading_text }}</div>
+                  <div class="h0 font-bold consultation_text">{{ block.settings.consultation_heading_text }}</div>
                   <ul class="consultation_list">
                     <li class="p">{{ block.settings.list_text_1 }}</li>
                     <li class="p">{{ block.settings.list_text_2 }}</li>
                     <li class="p">{{ block.settings.list_text_3 }}</li>
                   </ul>
                   <div class="w-full flex items-center justify-center consultation_button_container">
-                    <a href="#" class="text-[#282D56] consultation_button p"> {{ block.settings.button_text }} {% render 'icon-right' %}</a>
+                    <a href="#" class="text-[#282D56] consultation_button p flex gap-2 items-center"> {{ block.settings.button_text }} {% render 'icon-right' %}</a>
                   </div>
                 </div>
 
@@ -238,17 +249,18 @@
                     {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
                   {%- endif -%}
                 </div>
+                <div
+                    class="tax_block p4"
+                  >
+                    {{- block.settings.tax_span -}}
+                  </div>
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                     {{ form | payment_terms }}
                   {%- endform -%}
-                  <div
-                    class="tax_block p4"
-                  >
-                    {{- block.settings.tax_span -}}
-                  </div>
+                  
                 </div>
               {%- when 'inventory' -%}
                 <p
@@ -307,7 +319,7 @@
                 </p>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
-                  <div class="product__description rte quick-add-hidden text-[#858585] mb-2" {{ block.shopify_attributes }}>
+                  <div class="product__description p rte quick-add-hidden text-[#858585] mb-2" {{ block.shopify_attributes }}>
                     {{ product.description }}
                   </div>
                 {%- endif -%}
@@ -575,8 +587,8 @@
                 </a>
 
               {%- when 'share' -%}
-                <div class="flex items-center gap-3 mt-2">
-                  <p class="">Share</p>
+                <div class="flex items-center gap-3 mt-7 sm:mb-6">
+                  <p class="share_text">Share</p>
                   <div class="sharethis-inline-share-buttons {% if block.settings.enable_share_button == false %} hidden {% endif %} items-center"></div>
                 </div>
 

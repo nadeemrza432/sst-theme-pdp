@@ -148,7 +148,7 @@ pickup-availability-drawer[open] {
   margin: 0;
 }
 
-@keyframes animateDrawerOpen {
+/* @keyframes animateDrawerOpen {
   @media screen and (max-width: 749px) {
     0% {
       opacity: 0;
@@ -172,4 +172,4 @@ pickup-availability-drawer[open] {
       transform: translateX(0);
     }
   }
-}
+} */

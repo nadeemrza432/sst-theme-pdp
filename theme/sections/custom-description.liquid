@@ -1,13 +1,15 @@
-<div class="my-5">
-  <div class="page-width">
-    {% for desc in product.metafields.custom.description.value %}
-      <div class="mb-10 w-[90%] mx-auto">
-        <h4 class="mb-6">{{ desc.heading }}</h4>
-        <div class="p2">{{ desc.description | metafield_tag }}</div>
-      </div>
-    {% endfor %}
-  </div>
-</div>
+{% if product.metafields.custom.description.value != blank %}
+    <div class="my-5">
+    <div class="page-width">
+        {% for desc in product.metafields.custom.description.value %}
+        <div class="mb-10 w-[90%] mx-auto">
+            <h4 class="mb-6 text-black">{{ desc.heading }}</h4>
+            <div class="p2 text-[#858585]">{{ desc.description | metafield_tag }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endif %}
 
 {%  style %} 
     .metafield-rich_text_field p{

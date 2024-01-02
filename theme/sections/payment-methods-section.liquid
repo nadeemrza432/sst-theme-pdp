@@ -1,11 +1,11 @@
 <div>
   <div class="page-width">
     <div class="payments_methods_container">
-      <div class="flex gap-24">
-        <div class="w-[35%] flex flex-col justify-between">
+      <div class="flex gap-24 sm:flex-col">
+        <div class="w-[35%] flex flex-col justify-between sm:w-full">
           <div>
             {% if section.settings.heading_text != blank %}
-              <h2 class="text-black mb-3">{{ section.settings.heading_text }}</h2>
+              <h2 class="text-black mb-4">{{ section.settings.heading_text }}</h2>
             {% endif %}
             {% if section.settings.description_text != blank %}
               <div class="p3 text-[#282D56]">{{ section.settings.description_text }}</div>
@@ -14,9 +14,9 @@
           <p class="text-[#007185] cursor-pointer go_to_top">Go back to top</p>
         </div>
         {% if section.blocks.size > 0 %}
-          <div class="payments_images flex w-[60%] gap-3 flex-wrap">
+          <div class="payments_images flex w-[60%] gap-3 flex-wrap sm:w-[100%] sm:gap-2">
             {% for block in section.blocks %}
-              <div class="w-36 h-20">
+              <div class="w-36 h-20 sm:w-24">
                 {% if block.settings.image != blank %}
                   {{ block.settings.image | image_url: width: 150 | image_tag }}
                 {% endif %}
