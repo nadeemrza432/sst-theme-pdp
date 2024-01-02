@@ -1,5 +1,26 @@
 {
   "sections": {
+    "1704173153a736eb62": {
+      "type": "apps",
+      "blocks": {
+        "9bca03e5-008f-4967-95d1-30fdb86e53c1": {
+          "type": "shopify:\/\/apps\/g-translate\/blocks\/app-block-lang_names\/408a74ac-f92d-43cf-a1b1-a044341e66bd",
+          "settings": {
+            "horizontal_position": "right",
+            "vertical_position": "bottom",
+            "native_language_names": false,
+            "wrapper_selector": "",
+            "custom_css": ""
+          }
+        }
+      },
+      "block_order": [
+        "9bca03e5-008f-4967-95d1-30fdb86e53c1"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "main": {
       "type": "custom-main-product",
       "blocks": {
@@ -43,15 +64,24 @@
             "payment_anchor_text": "Know more"
           }
         },
+        "de605479-c173-4dae-b2b0-0cfbba876987": {
+          "type": "shipping_block",
+          "settings": {
+            "shipping_background": "#E1EFDF",
+            "shipping_text_color": "#000",
+            "shipping_text": "<span>Enjoy <b>Free Shipping across<\/b> Europe on Order Value above €50<\/span>"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
             "picker_type": "button"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
+        "c52d2585-6ac6-4729-aaad-37e80ad07069": {
+          "type": "dicount_block",
           "settings": {
+            "discount_text": "Offers"
           }
         },
         "buy_buttons": {
@@ -61,21 +91,28 @@
             "show_gift_card_recipient": true
           }
         },
+        "c1fcdcfe-b105-4f3f-bda2-b45824263da7": {
+          "type": "features",
+          "settings": {
+          }
+        },
+        "0219112f-8c24-4bee-b2b1-c5bbe3376355": {
+          "type": "consultation_block",
+          "settings": {
+            "consultation_heading_text": "Not sure if this product is right for you?",
+            "list_text_1": "It's always better to consult with an Ayurveda practitioner first, even if you have had consultations in the past. Supplements must match your body type, and remember that the suitability of a supplement changes with body imbalances.",
+            "list_text_2": "Ask an Ayurvedic practitioner to check interactions with any medications you are taking, and discuss allergens.",
+            "list_text_3": "This supplement is not a replacement for medical guidance or when urgent intervention is needed.",
+            "button_text": "Book a Consultation",
+            "button_border_color": "#282D56",
+            "button_text_color": "#282D56",
+            "button_background_color": "transparent"
+          }
+        },
         "1f060e3b-d57e-4336-b3b7-f21573eed06d": {
           "type": "share",
           "settings": {
             "enable_share_button": true
-          }
-        },
-        "c52d2585-6ac6-4729-aaad-37e80ad07069": {
-          "type": "dicount_block",
-          "settings": {
-            "discount_text": "Offers"
-          }
-        },
-        "c1fcdcfe-b105-4f3f-bda2-b45824263da7": {
-          "type": "features",
-          "settings": {
           }
         }
       },
@@ -87,12 +124,13 @@
         "3242e4bc-6922-499c-ba3b-f4b352265e28",
         "price",
         "9582eb39-f49b-429a-a87d-6106cbf84a9e",
+        "de605479-c173-4dae-b2b0-0cfbba876987",
         "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "1f060e3b-d57e-4336-b3b7-f21573eed06d",
         "c52d2585-6ac6-4729-aaad-37e80ad07069",
-        "c1fcdcfe-b105-4f3f-bda2-b45824263da7"
+        "buy_buttons",
+        "c1fcdcfe-b105-4f3f-bda2-b45824263da7",
+        "0219112f-8c24-4bee-b2b1-c5bbe3376355",
+        "1f060e3b-d57e-4336-b3b7-f21573eed06d"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -110,10 +148,231 @@
         "padding_bottom": 12
       }
     },
+    "12b2bbb6-3142-4297-9bf1-614661c0f2a9": {
+      "type": "benefits",
+      "settings": {
+        "heading_text": "Benefits",
+        "top_description": "Sri Sri Tattva Moisturising Cream is made with selected Ayurvedic products making your skin healthy and glowing."
+      }
+    },
+    "170417214092ee3e71": {
+      "type": "apps",
+      "blocks": {
+        "8bc2dc8c-1c0f-44fb-912b-a602ca46afdb": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "8bc2dc8c-1c0f-44fb-912b-a602ca46afdb"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "d0f5cdaf-ac62-4c33-9448-224b96442912": {
+      "type": "certification-training",
+      "blocks": {
+        "b9cfc0fa-9c9c-4902-a26f-47671aea43b1": {
+          "type": "content",
+          "settings": {
+            "background_color": "#B5A787",
+            "heading_text": "Certification",
+            "description_text": "Detailed certification information"
+          }
+        },
+        "016d49c3-48f3-44db-bbf4-46425e1a0aba": {
+          "type": "content",
+          "settings": {
+            "background_color": "#69ad5e",
+            "heading_text": "Testing Procedure",
+            "description_text": "Detailed testing procedure"
+          }
+        }
+      },
+      "block_order": [
+        "b9cfc0fa-9c9c-4902-a26f-47671aea43b1",
+        "016d49c3-48f3-44db-bbf4-46425e1a0aba"
+      ],
+      "settings": {
+      }
+    },
+    "d0491db9-1fc2-4ea9-b5cb-617ec64db8ef": {
+      "type": "consumption-steps",
+      "settings": {
+        "background_color": "#FFFBF2"
+      }
+    },
+    "b91ef22f-d119-49e2-a129-dd7affe05424": {
+      "type": "custom-description",
+      "settings": {
+      }
+    },
+    "08af503f-b70c-46fa-9d7a-41567b45b3b2": {
+      "type": "accordion",
+      "blocks": {
+        "a0e5e2c9-15cf-47e6-9b1e-1e8f37f7bfad": {
+          "type": "accordion_block",
+          "settings": {
+            "heading_text": "What is your cancellation policy?",
+            "description_text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, ipsum.Officiis magni non doloremque nisi."
+          }
+        },
+        "8cc40a60-f63a-4c1b-aac0-8ac09008d014": {
+          "type": "accordion_block",
+          "settings": {
+            "heading_text": "What is your cancellation policy?",
+            "description_text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, ipsum.Officiis magni non doloremque nisi."
+          }
+        },
+        "66b935db-48aa-43b6-bcdb-e35d485e7d96": {
+          "type": "accordion_block",
+          "settings": {
+            "heading_text": "What is your cancellation policy?",
+            "description_text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, ipsum.Officiis magni non doloremque nisi."
+          }
+        },
+        "3319699d-7a2b-4745-8d76-64a1b42c2e5e": {
+          "type": "accordion_block",
+          "settings": {
+            "heading_text": "What is your cancellation policy?",
+            "description_text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, ipsum.Officiis magni non doloremque nisi."
+          }
+        }
+      },
+      "block_order": [
+        "a0e5e2c9-15cf-47e6-9b1e-1e8f37f7bfad",
+        "8cc40a60-f63a-4c1b-aac0-8ac09008d014",
+        "66b935db-48aa-43b6-bcdb-e35d485e7d96",
+        "3319699d-7a2b-4745-8d76-64a1b42c2e5e"
+      ],
+      "settings": {
+        "background_color": "#FFFBF2",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "0a034efb-2f04-480c-943b-76a0d209d661": {
+      "type": "payment-methods-section",
+      "blocks": {
+        "8dc7ba57-5956-43b5-bad1-2f14113ab899": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1.svg"
+          }
+        },
+        "31fd7141-545b-4f5f-9b5e-9d4770761173": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1_1.svg"
+          }
+        },
+        "585d0c95-e3d5-4f10-b594-4cc4d9261ca5": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1.png"
+          }
+        },
+        "44e02150-32af-450e-ac69-721fbc516271": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1_2_89bfadfd-7bf7-4b12-8470-df9b15184e47.svg"
+          }
+        },
+        "ab7d66d7-7d41-4eb5-8ef9-6d9cf193752f": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1.svg"
+          }
+        },
+        "8b3ca8dd-4d88-4bca-b6b8-2f50835d6795": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1_1.svg"
+          }
+        },
+        "0ed0fe39-5115-4417-90c3-24847f9e860c": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1.png"
+          }
+        },
+        "2d20f3e0-c24e-46fc-a380-522a36df03db": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1_2_89bfadfd-7bf7-4b12-8470-df9b15184e47.svg"
+          }
+        },
+        "340c6510-c8bd-4fb0-b885-d2ab193e7cc5": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1.svg"
+          }
+        },
+        "364c68e1-94ff-4db4-8632-a06aabeb2264": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1_1.svg"
+          }
+        },
+        "887cf934-ca10-4ea6-97d1-81fff52ccc59": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1.png"
+          }
+        },
+        "a5752e5d-03ea-4310-bae4-43534b81d84e": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1_2_89bfadfd-7bf7-4b12-8470-df9b15184e47.svg"
+          }
+        },
+        "38b48622-dace-42a6-84f1-dc2d4fbe3d92": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1.svg"
+          }
+        },
+        "4c81d299-ed68-4dcb-bb32-327543f63340": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1_1.svg"
+          }
+        },
+        "fb0695a5-c6a9-4662-8a73-4dd031c29c59": {
+          "type": "payment_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1.svg"
+          }
+        }
+      },
+      "block_order": [
+        "8dc7ba57-5956-43b5-bad1-2f14113ab899",
+        "31fd7141-545b-4f5f-9b5e-9d4770761173",
+        "585d0c95-e3d5-4f10-b594-4cc4d9261ca5",
+        "44e02150-32af-450e-ac69-721fbc516271",
+        "ab7d66d7-7d41-4eb5-8ef9-6d9cf193752f",
+        "8b3ca8dd-4d88-4bca-b6b8-2f50835d6795",
+        "0ed0fe39-5115-4417-90c3-24847f9e860c",
+        "2d20f3e0-c24e-46fc-a380-522a36df03db",
+        "340c6510-c8bd-4fb0-b885-d2ab193e7cc5",
+        "364c68e1-94ff-4db4-8632-a06aabeb2264",
+        "887cf934-ca10-4ea6-97d1-81fff52ccc59",
+        "a5752e5d-03ea-4310-bae4-43534b81d84e",
+        "38b48622-dace-42a6-84f1-dc2d4fbe3d92",
+        "4c81d299-ed68-4dcb-bb32-327543f63340",
+        "fb0695a5-c6a9-4662-8a73-4dd031c29c59"
+      ],
+      "settings": {
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
+        "heading": "Related Products",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
@@ -130,7 +389,15 @@
     }
   },
   "order": [
+    "1704173153a736eb62",
     "main",
+    "12b2bbb6-3142-4297-9bf1-614661c0f2a9",
+    "170417214092ee3e71",
+    "d0f5cdaf-ac62-4c33-9448-224b96442912",
+    "d0491db9-1fc2-4ea9-b5cb-617ec64db8ef",
+    "b91ef22f-d119-49e2-a129-dd7affe05424",
+    "08af503f-b70c-46fa-9d7a-41567b45b3b2",
+    "0a034efb-2f04-480c-943b-76a0d209d661",
     "related-products"
   ]
 }
