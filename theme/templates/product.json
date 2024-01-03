@@ -253,6 +253,22 @@
         "padding_bottom": 64
       }
     },
+    "e2363396-a902-42bb-8f85-90b257978658": {
+      "type": "get-in-touch",
+      "settings": {
+        "background_color": "#EFFFEA",
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "image": "shopify:\/\/shop_images\/Avatar_group.png",
+        "heading_text": "Still have questions?",
+        "description_text": "Can't find the answer you're looking for? Please let us know",
+        "button_url": "",
+        "button_background_color": "#282D56",
+        "button_text_color": "#fff",
+        "button_text": "Get in touch",
+        "button_radius": 4
+      }
+    },
     "0a034efb-2f04-480c-943b-76a0d209d661": {
       "type": "payment-methods-section",
       "blocks": {
@@ -397,6 +413,7 @@
     "d0491db9-1fc2-4ea9-b5cb-617ec64db8ef",
     "b91ef22f-d119-49e2-a129-dd7affe05424",
     "08af503f-b70c-46fa-9d7a-41567b45b3b2",
+    "e2363396-a902-42bb-8f85-90b257978658",
     "0a034efb-2f04-480c-943b-76a0d209d661",
     "related-products"
   ]
