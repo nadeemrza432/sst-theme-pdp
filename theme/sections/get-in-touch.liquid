@@ -1,5 +1,5 @@
 <div>
-  <div class="page-width bg-[#FFFBF2] mb-24">
+  <div class="page-width bg-[#FFFBF2] mb-24 get_in_touch_main_container">
     <div class="get_in_touch_container flex flex-col items-center gap-8 text-center py-1">
       {% if section.settings.image != blank %}
         <div>{{ section.settings.image | image_url: width: 120 | image_tag }}</div>
@@ -31,6 +31,12 @@
       background: {{ section.settings.button_background_color }};
       color: {{ section.settings.button_text_color }};
       border-radius: {{ section.settings.button_radius }}px;
+  }
+
+  @media screen and (max-width: 750px){
+    .get_in_touch_main_container{
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
   }
 {% endstyle %}
 

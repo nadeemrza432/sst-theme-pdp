@@ -16,7 +16,7 @@
         {% if section.blocks.size > 0 %}
           <div class="payments_images flex w-[60%] gap-3 flex-wrap sm:w-[100%] sm:gap-2 mt-9">
             {% for block in section.blocks %}
-              <div class="w-36 h-20 sm:w-24">
+              <div class="w-36 h-[3rem] sm:w-[10%]">
                 {% if block.settings.image != blank %}
                   {{ block.settings.image | image_url: width: 150 | image_tag }}
                 {% endif %}
@@ -24,19 +24,21 @@
             {% endfor %}
           </div>
         {% endif %}
-        <p class="text-[#007185] cursor-pointer go_to_top_mobile">Go back to top</p>
+        <p class="text-[#007185] cursor-pointer go_to_top go_to_top_mobile">Go back to top</p>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-  document.querySelector('.go_to_top').addEventListener('click', () => {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
+  document.querySelectorAll('.go_to_top').forEach((ele)=>{
+      ele.addEventListener('click', () => {
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        });
+    })
   });
 </script>
 

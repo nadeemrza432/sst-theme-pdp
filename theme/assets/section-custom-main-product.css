@@ -121,7 +121,9 @@
   }
 }
 
-
+.restock-alerts-notify-button{
+  max-width: 50%;
+}
 
 
 .price {
@@ -607,6 +609,10 @@ a.product__text {
   .jdgm-rev-widg__title{
     font-size: 1.5rem !important;
     text-align: center;
+  }
+
+  .related-products .card-information .price__container .price-item--sale{
+    font-size: 0.75rem !important;
   }
 }
 
