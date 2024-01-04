@@ -107,7 +107,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %} w-[50%] sm:w-[50%] order-2 relative top-[0.85rem] md:w-auto"
+            class="product-form__submit button {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %} w-[50%] sm:w-[50%] order-2 relative top-[0.85rem] md:w-auto sm:text-xs sm:h-max:[1.75rem]"
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}

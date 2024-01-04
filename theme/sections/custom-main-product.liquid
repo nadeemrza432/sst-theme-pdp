@@ -209,7 +209,7 @@
                 {% endif %}
 
               {% when 'features' %}
-                <div class="flex items-center gap-[3.25rem] bg-[#FFFBF2] rounded-xl sm:justify-center features_box">
+                <div class="flex items-center gap-[3.25rem] bg-[#FFFBF2] rounded-xl sm:justify-center features_box sm:max-w-[95vw] sm:p-2">
                   {% for feature in product.metafields.custom.features.value %}
                     <div class="flex flex-col items-center gap-3 relative justify-center text-center py-2">
                       <div class="flex-1 feature_image {% if forloop.first %} {% else %} features_block {% endif %}">
@@ -944,11 +944,18 @@
           gLangContainer.classList.add("flex");
           heading_block.innerHTML = heading_block_html;
           gLanguages.forEach((lang)=>{
-            lang.style.fontSize = "18px";
-            lang.style.margin = "0 3px";
-            lang.style.marginLeft = "0";
+            if(window.innerWidth < 750){
+              lang.style.fontSize = "12px";
+              lang.style.margin = "0 12px";
+              lang.style.marginLeft = "0";
+            } else {
+              lang.style.fontSize = "18px";
+              lang.style.margin = "0 3px";
+              lang.style.marginLeft = "0";
+            }
           })
           gLangContainer.insertBefore(heading_block, gLanguage);
+          gLangContainer.style.justifyContent = "flex-start";
           heading_block.querySelector("p").style.fontSize = "18px";
           heading_block.classList.add("flex");
           heading_block.style.gap = "5px";
@@ -959,6 +966,12 @@
           if(window.innerWidth < 750){
             gLangContainer.style.alignItems = "center";
             gLangContainer.style.marginTop = "0.5rem";
+            heading_block.querySelector("p").style.fontSize = "12px";
+            heading_block.querySelector("p").style.marginRight = "45px";
+            heading_block.style.justifyContent = "flex-start";
+            gLangContainer.style.width = "97vw";
+            gLangContainer.style.alignItems = "center";
+            gLangContainer.style.right = "0rem";
           }
         }
       }, 1000)

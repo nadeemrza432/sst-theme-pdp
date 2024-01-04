@@ -501,6 +501,11 @@ fieldset.product-form__input .form__label {
   #wishlisthero-product-page-button-container{
     left: 78vw;
     transform: translate(-50%);
+    width: 2.5rem;
+  }
+
+  .shopify-payment-button__button {
+    font-size: 1rem;
   }
 }
 
@@ -588,6 +593,21 @@ a.product__text {
   .jdgm-rev-widg__summary-text{
     margin-left: 0.75rem;
   }
+
+  .jdgm-rev-widg__title{
+    text-align: start;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .jdgm-prev-badge__text{
+    font-size: 1rem;
+  }
+
+  .jdgm-rev-widg__title{
+    font-size: 1.5rem !important;
+    text-align: center;
+  }
 }
 
 .jdgm-form__title{
@@ -622,10 +642,6 @@ a.product__text {
   flex-direction: column-reverse;
   border: 1px solid #F1F1F1;
   box-shadow: 2px 3px 14px #000;
-}
-
-.jdgm-rev-widg__title{
-  text-align: start;
 }
 
 .jdgm-histogram {

@@ -59,7 +59,7 @@
         class="disabled"
       {% endif %}
     >
-    <label class="text-sm rounded-[4px] py-4 px-8" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+    <label class="text-sm rounded-[4px] py-4 px-8 sm:px-4 sm:text-base" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
       {{ value -}}
       <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
     </label>

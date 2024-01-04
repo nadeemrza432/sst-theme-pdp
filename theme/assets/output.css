@@ -662,6 +662,10 @@ video {
   margin-top: 2rem;
 }
 
+.mt-9 {
+  margin-top: 2.25rem;
+}
+
 .block {
   display: block;
 }
@@ -903,8 +907,25 @@ video {
   border-width: 1px;
 }
 
+.border-0 {
+  border-width: 0px;
+}
+
 .border-none {
   border-style: none;
+}
+
+.border-transparent {
+  border-color: transparent;
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.border-opacity-0 {
+  --tw-border-opacity: 0;
 }
 
 .bg-\[\#69AD5E\] {
@@ -1038,6 +1059,11 @@ video {
   line-height: 1.75rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1132,9 +1158,23 @@ video {
   outline-offset: 2px;
 }
 
+@media (max-width: 1440px) {
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+}
+
 @media (max-width: 990px) {
   .md\:block {
     display: block;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 
   .md\:w-auto {
@@ -1180,13 +1220,26 @@ video {
     margin-top: 2.25rem;
   }
 
+  .sm\:block {
+    display: block;
+  }
+
   .sm\:flex {
     display: flex;
+  }
+
+  .sm\:hidden {
+    display: none;
   }
 
   .sm\:h-fit {
     height: -moz-fit-content;
     height: fit-content;
+  }
+
+  .sm\:h-max {
+    height: -moz-max-content;
+    height: max-content;
   }
 
   .sm\:w-24 {
@@ -1207,6 +1260,10 @@ video {
 
   .sm\:max-w-\[100\%\] {
     max-width: 100%;
+  }
+
+  .sm\:max-w-\[95vw\] {
+    max-width: 95vw;
   }
 
   .sm\:flex-row {
@@ -1233,13 +1290,34 @@ video {
     gap: 1.25rem;
   }
 
+  .sm\:gap-9 {
+    gap: 2.25rem;
+  }
+
+  .sm\:p-2 {
+    padding: 0.5rem;
+  }
+
   .sm\:px-\[1\.5rem\] {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 
+  .sm\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .sm\:text-center {
+    text-align: center;
+  }
+
   .sm\:text-start {
     text-align: start;
+  }
+
+  .sm\:text-\[10px\] {
+    font-size: 10px;
   }
 
   .sm\:text-\[24px\] {
@@ -1249,5 +1327,15 @@ video {
   .sm\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }

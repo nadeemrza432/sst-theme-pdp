@@ -22,7 +22,7 @@
                   </div>
                 {% endif %}
                 {% if block.settings.description_text != blank %}
-                  <div class="description-{{ block.id }} text-[1.13rem] text-[#858585] hidden description font-['Inter',sans-serif] mt-2">
+                  <div class="description-{{ block.id }} text-[1.13rem] text-[#858585] hidden description font-['Inter',sans-serif] mt-2 sm:text-xs">
                     {{ block.settings.description_text }}
                   </div>
                 {% endif %}
@@ -43,6 +43,10 @@
   .accordion_container {
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .accordion{
+    border-color: transparent;
   }
 {% endstyle %}
 
