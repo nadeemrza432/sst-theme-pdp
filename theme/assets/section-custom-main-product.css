@@ -611,6 +611,7 @@ a.product__text {
 .jdgm-btn--solid{
   background-color: #282D56 !important;
   color: #fff !important;
+  border: none !important;
 }
 
 .jdgm-rev{
