@@ -16,7 +16,7 @@
         {% if section.blocks.size > 0 %}
           <div class="payments_images flex w-[60%] gap-3 flex-wrap sm:w-[100%] sm:gap-2 mt-9">
             {% for block in section.blocks %}
-              <div class="w-36 h-[3rem] sm:w-[12%]">
+              <div class="w-36 h-[3rem] sm:w-3">
                 {% if block.settings.image != blank %}
                   {{ block.settings.image | image_url: width: 150 | image_tag }}
                 {% endif %}
