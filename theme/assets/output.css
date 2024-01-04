@@ -1207,8 +1207,8 @@ video {
     height: max-content;
   }
 
-  .sm\:w-\[10\%\] {
-    width: 10%;
+  .sm\:w-3 {
+    width: 0.75rem;
   }
 
   .sm\:w-\[100\%\] {
