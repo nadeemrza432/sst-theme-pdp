@@ -686,16 +686,16 @@ video {
   display: none;
 }
 
-.h-20 {
-  height: 5rem;
-}
-
 .h-\[32rem\] {
   height: 32rem;
 }
 
 .h-\[37rem\] {
   height: 37rem;
+}
+
+.h-\[3rem\] {
+  height: 3rem;
 }
 
 .h-\[4\.3rem\] {
@@ -907,25 +907,8 @@ video {
   border-width: 1px;
 }
 
-.border-0 {
-  border-width: 0px;
-}
-
 .border-none {
   border-style: none;
-}
-
-.border-transparent {
-  border-color: transparent;
-}
-
-.border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-
-.border-opacity-0 {
-  --tw-border-opacity: 0;
 }
 
 .bg-\[\#69AD5E\] {
@@ -1032,6 +1015,11 @@ video {
   font-family: 'Inter',sans-serif;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .text-\[1\.13rem\] {
   font-size: 1.13rem;
 }
@@ -1057,11 +1045,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 
 .font-bold {
@@ -1158,23 +1141,9 @@ video {
   outline-offset: 2px;
 }
 
-@media (max-width: 1440px) {
-  .lg\:block {
-    display: block;
-  }
-
-  .lg\:hidden {
-    display: none;
-  }
-}
-
 @media (max-width: 990px) {
   .md\:block {
     display: block;
-  }
-
-  .md\:hidden {
-    display: none;
   }
 
   .md\:w-auto {
@@ -1220,10 +1189,6 @@ video {
     margin-top: 2.25rem;
   }
 
-  .sm\:block {
-    display: block;
-  }
-
   .sm\:flex {
     display: flex;
   }
@@ -1242,8 +1207,8 @@ video {
     height: max-content;
   }
 
-  .sm\:w-24 {
-    width: 6rem;
+  .sm\:w-\[10\%\] {
+    width: 10%;
   }
 
   .sm\:w-\[100\%\] {
@@ -1298,14 +1263,14 @@ video {
     padding: 0.5rem;
   }
 
-  .sm\:px-\[1\.5rem\] {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
   .sm\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .sm\:px-\[1\.5rem\] {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .sm\:text-center {
@@ -1316,6 +1281,11 @@ video {
     text-align: start;
   }
 
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .sm\:text-\[10px\] {
     font-size: 10px;
   }
@@ -1324,18 +1294,13 @@ video {
     font-size: 24px;
   }
 
-  .sm\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
-  }
-
-  .sm\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .sm\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 }
