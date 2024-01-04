@@ -3564,3 +3564,9 @@ details-disclosure > details {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
 }
+
+@media screen and (max-width: 750px){
+  .button__custom{
+    font-size: 1.1rem;
+  }
+}
