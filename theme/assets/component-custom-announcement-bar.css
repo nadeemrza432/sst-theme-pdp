@@ -1,0 +1,45 @@
+.announcement_wrapper{
+  max-width: 98%;
+  overflow: hidden;
+  display: flex;
+}
+
+.single_annoucement{
+  width: 100%;
+  text-align: center;
+}
+
+.announcement-bar-slider-container{
+  width: fit-content;
+}
+
+.announcement-bar-slider{
+  display: flex;
+  gap: 0px; 
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marquee 10s linear infinite;
+}
+
+.announcement-bar-slider-2{
+  animation-delay: -10s;
+}
+
+.annoucement_text{
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15.62px;
+}
+
+.yellow_icon{
+  margin: 0 20px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
