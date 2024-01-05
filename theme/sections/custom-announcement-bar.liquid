@@ -25,7 +25,7 @@
               class=""
             >
           {%- endif -%}
-          <p class="h5">
+          <p class="h5 flex items-center justify-center">
             <span class="annoucement_text">{{ section.blocks.first.settings.text | escape }}</span>
             <span class="yellow_icon">{% render 'icon-yellow-dot' %}</span>
           </p>
@@ -67,7 +67,7 @@
                         class="announcement-bar__link link link--text focus-inset animate-arrow"
                       >
                     {%- endif -%}
-                    <p class="h5">
+                    <p class="h5 flex items-center justify-center">
                       <span class="annoucement_text">{{ block.settings.text | escape }}</span>
                       <span class="yellow_icon">{% render 'icon-yellow-dot' %}</span>
                     </p>
@@ -101,7 +101,7 @@
                         class="announcement-bar__link link link--text focus-inset animate-arrow"
                       >
                     {%- endif -%}
-                    <p class="h5">
+                    <p class="h5 flex items-center justify-center">
                       <span class="annoucement_text">{{ block.settings.text | escape }}</span>
                       <span class="yellow_icon">{% render 'icon-yellow-dot' %}</span>
                     </p>
@@ -146,7 +146,7 @@
                         class="announcement-bar__link link link--text focus-inset animate-arrow"
                       >
                     {%- endif -%}
-                    <p class="h5">
+                    <p class="h5 flex items-center justify-center">
                       <span class="annoucement_text">{{ block.settings.text | escape }}</span>
                       <span class="yellow_icon">{% render 'icon-yellow-dot' %}</span>
                     </p>
@@ -180,7 +180,7 @@
                         class="announcement-bar__link link link--text focus-inset animate-arrow"
                       >
                     {%- endif -%}
-                    <p class="h5">
+                    <p class="h5 flex items-center justify-center">
                       <span class="annoucement_text">{{ block.settings.text | escape }}</span>
                       <span class="yellow_icon">{% render 'icon-yellow-dot' %}</span>
                     </p>
@@ -206,6 +206,13 @@
   </div>
 </div>
 
+{%  style  %} 
+ .announcement_wrapper {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
+
 {% schema %}
 {
   "name": "Custom Announcement Bar",
@@ -215,6 +222,30 @@
     "groups": ["header"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 8
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
